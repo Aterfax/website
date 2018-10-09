@@ -63,3 +63,4 @@ yarn-debug.log*
 # Ignore credentials shell file
 credentials
 docker-compose-with-credentials.yml
+coverage
