@@ -137,4 +137,13 @@ RSpec.describe Event, type: :model do
     it { should have_many(:game_event_relations) }
     it { should have_many(:games) }
   end
+
+  context 'when retrieving the facebok event link' do
+    let(:event) { FactoryBot.build(:event, facebook_event_id: '2153678125674') }
+
+    it 'returns the Facebook event link as intended' do
+      expect(event.facebook_event_link)
+        .to eq('https://facebook.com/events/2153678125674')
+    end
+  end
 end
