@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :code do
-    name 'MyString'
+    name { 'MyString' }
   end
 end

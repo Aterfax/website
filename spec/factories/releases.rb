@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :release do
-    game nil
-    platform nil
+    game { nil }
+    platform { nil }
   end
 end

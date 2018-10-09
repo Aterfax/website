@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :server do
-    game nil
-    port 1
+    game { nil }
+    port { 1 }
   end
 end
