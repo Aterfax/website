@@ -31,7 +31,7 @@ class Event < ApplicationRecord
   end
 
   def multiple_day_event?
-    datetime.to_date == end_datetime&.to_date
+    !end_datetime.nil? && (datetime.to_date != end_datetime&.to_date)
   end
 
   def times

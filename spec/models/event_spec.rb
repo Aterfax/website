@@ -18,6 +18,30 @@ RSpec.describe Event, type: :model do
     end
   end
 
+  context 'when asserting this event lasts multiple days' do
+    let!(:single_day_event_no_end_datetime) do
+      FactoryBot.build(:event, datetime: DateTime.now, end_datetime: nil)
+    end
+    let!(:single_day_event_with_end_datetime) do
+      FactoryBot.build(:event, datetime: DateTime.now, end_datetime: 2.minutes.after)
+    end
+    let!(:multi_day_event) do
+      FactoryBot.build(:event, datetime: DateTime.now, end_datetime: 2.days.after)
+    end
+
+    it 'should be a single day event if it has no end' do
+      expect(single_day_event_no_end_datetime.multiple_day_event?).to be false
+    end
+
+    it 'should be a single day event if it has a valid end' do
+      expect(single_day_event_with_end_datetime.multiple_day_event?).to be false
+    end
+
+    it 'should be a multiple day event if it has a valid end' do
+      expect(multi_day_event.multiple_day_event?).to be true
+    end
+  end
+
   context 'when validating fields' do
     it { should validate_presence_of(:datetime) }
     it { should validate_presence_of(:location) }
