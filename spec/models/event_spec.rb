@@ -3,10 +3,15 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-
   context 'when retrieving dates' do
-    let!(:future_event) { FactoryBot.create(:event, datetime: 2.days.after, end_datetime: 3.days.after) }
-    let!(:past_event) { FactoryBot.create(:event, datetime: 2.days.ago, end_datetime: 1.day.ago) }
+    let!(:future_event) do
+      FactoryBot.create(:event, datetime: 2.days.after,
+                                end_datetime: 3.days.after)
+    end
+    let!(:past_event) do
+      FactoryBot.create(:event, datetime: 2.days.ago,
+                                end_datetime: 1.day.ago)
+    end
     let(:all_future) { described_class.all_future }
 
     it 'retrieves future dates' do
@@ -23,10 +28,14 @@ RSpec.describe Event, type: :model do
       FactoryBot.build(:event, datetime: DateTime.now, end_datetime: nil)
     end
     let!(:single_day_event_with_end_datetime) do
-      FactoryBot.build(:event, datetime: DateTime.now, end_datetime: 2.minutes.after)
+      FactoryBot.build(:event,
+                       datetime: DateTime.now,
+                       end_datetime: 2.minutes.after)
     end
     let!(:multi_day_event) do
-      FactoryBot.build(:event, datetime: DateTime.now, end_datetime: 2.days.after)
+      FactoryBot.build(:event,
+                       datetime: DateTime.now,
+                       end_datetime: 2.days.after)
     end
 
     it 'should be a single day event if it has no end' do
