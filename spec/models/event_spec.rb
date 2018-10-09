@@ -18,7 +18,7 @@ RSpec.describe Event, type: :model do
     end
   end
 
-  context 'validations' do
+  context 'when validating fields' do
     it { should validate_presence_of(:datetime) }
     it { should validate_presence_of(:location) }
     it { should validate_presence_of(:name) }
