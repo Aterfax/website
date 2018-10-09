@@ -25,4 +25,9 @@ RSpec.describe Event, type: :model do
     it { should validate_presence_of(:description) }
     it { should validate_numericality_of(:lan_number).only_integer }
   end
+
+  context 'relations' do
+    it { should have_many(:game_event_relations) }
+    it { should have_many(:games) }
+  end
 end
