@@ -36,6 +36,14 @@ RSpec.describe Event, type: :model do
       it 'should only display one date' do
         expect(event.dates).not_to include('-')
       end
+
+      it 'should only display one time' do
+        expect(event.times).not_to include('-')
+      end
+
+      it 'should only display one datetime' do
+        expect(event.times).not_to include('-')
+      end
     end
 
     context 'when the event\'s end date is on the same day' do
@@ -50,6 +58,14 @@ RSpec.describe Event, type: :model do
 
       it 'should only display one date' do
         expect(event.dates).not_to include('-')
+      end
+
+      it 'should display a range of times' do
+        expect(event.times).to include('-')
+      end
+
+      it 'should display a range of datetimes' do
+        expect(event.datetimes).to include('-')
       end
     end
 
@@ -66,6 +82,14 @@ RSpec.describe Event, type: :model do
 
       it 'should display a range of dates' do
         expect(event.dates).to include('-')
+      end
+
+      it 'should display a range of times' do
+        expect(event.times).to include('-')
+      end
+
+      it 'should display a range of datetimes' do
+        expect(event.datetimes).to include('-')
       end
     end
   end
