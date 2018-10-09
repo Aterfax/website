@@ -51,6 +51,37 @@ RSpec.describe Event, type: :model do
     end
   end
 
+  context 'when searching for the next LAN' do
+    let!(:next_lan) do
+      FactoryBot.create(:event, name: 'LAN 72',
+                                datetime: 1.day.after,
+                                end_datetime: 3.days.after)
+    end
+    let!(:future_lan) do
+      FactoryBot.create(:event, name: 'LAN 73',
+                                datetime: 2.days.after,
+                                end_datetime: 4.days.after)
+    end
+    let!(:dummy_event) do
+      FactoryBot.create(:event, name: 'Not a LAN, honestly',
+                                datetime: 2.minutes.after,
+                                end_datetime: 4.minutes.after)
+    end
+    let!(:method_output) { Event.next_lan }
+
+    it 'should find the next LAN' do
+      expect(method_output).to eq(next_lan)
+    end
+
+    it 'should not find later LANs' do
+      expect(method_output).not_to eq(future_lan)
+    end
+
+    it 'should not capture events that don\'t match' do
+      expect(method_output).not_to eq(dummy_event)
+    end
+  end
+
   context 'when validating fields' do
     it { should validate_presence_of(:datetime) }
     it { should validate_presence_of(:location) }
