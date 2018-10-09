@@ -24,30 +24,49 @@ RSpec.describe Event, type: :model do
   end
 
   context 'when asserting this event lasts multiple days' do
-    let!(:single_day_event_no_end_datetime) do
-      FactoryBot.build(:event, datetime: DateTime.now, end_datetime: nil)
-    end
-    let!(:single_day_event_with_end_datetime) do
-      FactoryBot.build(:event,
-                       datetime: DateTime.now,
-                       end_datetime: 2.minutes.after)
-    end
-    let!(:multi_day_event) do
-      FactoryBot.build(:event,
-                       datetime: DateTime.now,
-                       end_datetime: 2.days.after)
+    context 'when the event has no end date' do
+      let!(:event) do
+        FactoryBot.build(:event, datetime: DateTime.now, end_datetime: nil)
+      end
+
+      it 'should be a single day event' do
+        expect(event.multiple_day_event?).to be false
+      end
+
+      it 'should only display one date' do
+        expect(event.dates).not_to include('-')
+      end
     end
 
-    it 'should be a single day event if it has no end' do
-      expect(single_day_event_no_end_datetime.multiple_day_event?).to be false
+    context 'when the event\'s end date is on the same day' do
+      let!(:event) do
+        FactoryBot.build(:event,
+                         datetime: DateTime.now,
+                         end_datetime: 2.minutes.after)
+      end
+      it 'should be a single day event' do
+        expect(event.multiple_day_event?).to be false
+      end
+
+      it 'should only display one date' do
+        expect(event.dates).not_to include('-')
+      end
     end
 
-    it 'should be a single day event if it has a valid end' do
-      expect(single_day_event_with_end_datetime.multiple_day_event?).to be false
-    end
+    context 'when the event\'s end date is on the next day' do
+      let!(:event) do
+        FactoryBot.build(:event,
+                         datetime: DateTime.now,
+                         end_datetime: 2.days.after)
+      end
 
-    it 'should be a multiple day event if it has a valid end' do
-      expect(multi_day_event.multiple_day_event?).to be true
+      it 'should be a multiple day event if it has a valid end' do
+        expect(event.multiple_day_event?).to be true
+      end
+
+      it 'should display a range of dates' do
+        expect(event.dates).to include('-')
+      end
     end
   end
 

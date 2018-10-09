@@ -25,8 +25,7 @@ class Event < ApplicationRecord
 
   def dates
     dates = I18n.l(datetime, format: :day)
-    dates += " - #{I18n.l(end_datetime, format: :day)}" unless
-      multiple_day_event? || end_datetime.blank?
+    dates += " - #{I18n.l(end_datetime, format: :day)}" if multiple_day_event?
     dates
   end
 
