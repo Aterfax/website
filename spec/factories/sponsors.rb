@@ -2,11 +2,11 @@
 
 FactoryBot.define do
   factory :sponsor do
-    name { 'MyString' }
-    website { 'MyString' }
-    blurb { 'MyString' }
-    facebook { 'MyString' }
-    twitter { 'MyString' }
-    image_link { 'MyString' }
+    name { 'Name' }
+    website { 'Website' }
+    blurb { Faker::Lorem.paragraph_by_chars(70, false) }
+    facebook { 'Facebook' }
+    twitter { 'Twitter' }
+    image_link { 'Image Link' }
   end
 end

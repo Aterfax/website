@@ -4,10 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'platforms/edit', type: :view do
   before(:each) do
-    @platform = assign(:platform, Platform.create!(
-                                    name: 'MyString',
-                                    icon: 'MyString'
-                                  ))
+    @platform = assign(:platform, FactoryBot.create(:platform))
   end
 
   it 'renders the edit platform form' do

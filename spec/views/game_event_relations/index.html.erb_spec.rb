@@ -5,14 +5,8 @@ require 'rails_helper'
 RSpec.describe 'game_event_relations/index', type: :view do
   before(:each) do
     assign(:game_event_relations, [
-             GameEventRelation.create!(
-               game: nil,
-               event: nil
-             ),
-             GameEventRelation.create!(
-               game: nil,
-               event: nil
-             )
+             FactoryBot.create(:game_event_relation),
+             FactoryBot.create(:game_event_relation)
            ])
   end
 

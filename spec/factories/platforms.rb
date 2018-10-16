@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :platform do
-    name { 'MyString' }
-    icon { 'MyString' }
+    name { 'Name' }
+    icon { 'fab discord' }
   end
 end

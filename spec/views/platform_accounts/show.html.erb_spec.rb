@@ -4,12 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'platform_accounts/show', type: :view do
   before(:each) do
-    @platform_account = assign(:platform_account, PlatformAccount.create!(
-                                                    platform: nil,
-                                                    member: nil,
-                                                    tag: 'Tag',
-                                                    internal_link: 'Internal Link'
-                                                  ))
+    @platform_account = assign(:platform_account, FactoryBot.create(:platform_account))
   end
 
   it 'renders attributes in <p>' do

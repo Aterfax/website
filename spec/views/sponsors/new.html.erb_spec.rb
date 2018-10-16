@@ -4,14 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'sponsors/new', type: :view do
   before(:each) do
-    assign(:sponsor, Sponsor.new(
-                       name: 'MyString',
-                       website: 'MyString',
-                       blurb: 'MyString',
-                       facebook: 'MyString',
-                       twitter: 'MyString',
-                       image_link: 'MyString'
-                     ))
+    assign(:sponsor, FactoryBot.create(:sponsor))
   end
 
   it 'renders new sponsor form' do

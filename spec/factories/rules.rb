@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :rule do
-    code { nil }
+    code { FactoryBot.create(:code) }
     summary { 'MyString' }
     full { 'MyString' }
     icon { 'MyString' }

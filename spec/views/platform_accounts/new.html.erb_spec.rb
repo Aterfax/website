@@ -4,12 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'platform_accounts/new', type: :view do
   before(:each) do
-    assign(:platform_account, PlatformAccount.new(
-                                platform: nil,
-                                member: nil,
-                                tag: 'MyString',
-                                internal_link: 'MyString'
-                              ))
+    assign(:platform_account, FactoryBot.create(:platform_account))
   end
 
   it 'renders new platform_account form' do

@@ -21,5 +21,6 @@ module SLUGSWebsite
     # the framework and any gems in your application.
     config.time_zone = 'London'
     config.active_record.default_timezone = :local
+    config.autoload_paths += ["#{Rails.root}/app/services"]
   end
 end

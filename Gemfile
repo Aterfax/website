@@ -45,6 +45,8 @@ gem 'twitter'
 gem 'koala'
 # Use Devise to manage users
 gem 'devise'
+# Use YamlDB to migrate the DB from dev to prod
+gem 'yaml_db'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -61,6 +63,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot'
   gem 'factory_bot_rails'
+  gem 'faker'
   gem 'rspec-rails'
 end
 

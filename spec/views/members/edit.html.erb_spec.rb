@@ -4,13 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'members/edit', type: :view do
   before(:each) do
-    @member = assign(:member, Member.create!(
-                                name: 'MyString',
-                                alias: 'MyString',
-                                role: 'MyString',
-                                blurb: 'MyString',
-                                image_link: 'MyString'
-                              ))
+    @member = assign(:member, FactoryBot.create(:member))
   end
 
   it 'renders the edit member form' do

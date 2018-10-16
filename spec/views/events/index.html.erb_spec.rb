@@ -5,18 +5,8 @@ require 'rails_helper'
 RSpec.describe 'events/index', type: :view do
   before(:each) do
     assign(:events, [
-             Event.create!(
-               location: 'Location',
-               lan_number: 2,
-               facebook_event_id: 'Facebook Event',
-               ticket_link: 'Ticket Link'
-             ),
-             Event.create!(
-               location: 'Location',
-               lan_number: 2,
-               facebook_event_id: 'Facebook Event',
-               ticket_link: 'Ticket Link'
-             )
+             FactoryBot.create(:event),
+             FactoryBot.create(:event)
            ])
   end
 

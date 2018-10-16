@@ -4,12 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'events/new', type: :view do
   before(:each) do
-    assign(:event, Event.new(
-                     location: 'MyString',
-                     lan_number: 1,
-                     facebook_event_id: 'MyString',
-                     ticket_link: 'MyString'
-                   ))
+    assign(:event, FactoryBot.create(:event))
   end
 
   it 'renders new event form' do

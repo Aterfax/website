@@ -4,10 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'platforms/new', type: :view do
   before(:each) do
-    assign(:platform, Platform.new(
-                        name: 'MyString',
-                        icon: 'MyString'
-                      ))
+    assign(:platform, FactoryBot.create(:platform))
   end
 
   it 'renders new platform form' do

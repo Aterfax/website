@@ -4,11 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'games/new', type: :view do
   before(:each) do
-    assign(:game, Game.new(
-                    name: 'MyString',
-                    platform: 'MyString',
-                    link: 'MyString'
-                  ))
+    assign(:game, FactoryBot.create(:game))
   end
 
   it 'renders new game form' do
@@ -16,8 +12,6 @@ RSpec.describe 'games/new', type: :view do
 
     assert_select 'form[action=?][method=?]', games_path, 'post' do
       assert_select 'input[name=?]', 'game[name]'
-
-      assert_select 'input[name=?]', 'game[platform]'
 
       assert_select 'input[name=?]', 'game[link]'
     end

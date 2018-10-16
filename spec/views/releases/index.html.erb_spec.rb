@@ -4,16 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'releases/index', type: :view do
   before(:each) do
-    assign(:releases, [
-             Release.create!(
-               game: nil,
-               platform: nil
-             ),
-             Release.create!(
-               game: nil,
-               platform: nil
-             )
-           ])
+    assign(:releases, [FactoryBot.create(:release), FactoryBot.create(:release)])
   end
 
   it 'renders a list of releases' do

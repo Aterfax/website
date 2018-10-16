@@ -2,9 +2,9 @@
 
 FactoryBot.define do
   factory :platform_account do
-    member { nil }
-    platform { nil }
-    tag { 'MyString' }
-    internal_link { 'MyString' }
+    member { FactoryBot.create(:member) }
+    platform { FactoryBot.create(:platform) }
+    tag { 'Tag' }
+    internal_link { 'Internal Link' }
   end
 end

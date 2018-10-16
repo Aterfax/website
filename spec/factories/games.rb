@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :game do
-    name { 'MyString' }
-    link { 'MyString' }
+    name { 'Name' }
+    link { 'Link' }
   end
 end

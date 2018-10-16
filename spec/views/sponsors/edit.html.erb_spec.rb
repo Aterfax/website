@@ -4,14 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'sponsors/edit', type: :view do
   before(:each) do
-    @sponsor = assign(:sponsor, Sponsor.create!(
-                                  name: 'MyString',
-                                  website: 'MyString',
-                                  blurb: 'MyString',
-                                  facebook: 'MyString',
-                                  twitter: 'MyString',
-                                  image_link: 'MyString'
-                                ))
+    @sponsor = assign(:sponsor, FactoryBot.create(:sponsor))
   end
 
   it 'renders the edit sponsor form' do

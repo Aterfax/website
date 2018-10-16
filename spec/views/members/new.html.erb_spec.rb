@@ -4,13 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'members/new', type: :view do
   before(:each) do
-    assign(:member, Member.new(
-                      name: 'MyString',
-                      alias: 'MyString',
-                      role: 'MyString',
-                      blurb: 'MyString',
-                      image_link: 'MyString'
-                    ))
+    assign(:member, FactoryBot.create(:member))
   end
 
   it 'renders new member form' do

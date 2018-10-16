@@ -4,12 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'events/edit', type: :view do
   before(:each) do
-    @event = assign(:event, Event.create!(
-                              location: 'MyString',
-                              lan_number: 1,
-                              facebook_event_id: 'MyString',
-                              ticket_link: 'MyString'
-                            ))
+    @event = assign(:event, FactoryBot.create(:event))
   end
 
   it 'renders the edit event form' do

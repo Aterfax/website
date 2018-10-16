@@ -4,12 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'events/show', type: :view do
   before(:each) do
-    @event = assign(:event, Event.create!(
-                              location: 'Location',
-                              lan_number: 2,
-                              facebook_event_id: 'Facebook Event',
-                              ticket_link: 'Ticket Link'
-                            ))
+    @event = assign(:event, FactoryBot.create(:event))
   end
 
   it 'renders attributes in <p>' do

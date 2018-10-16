@@ -2,13 +2,10 @@
 
 FactoryBot.define do
   factory :member do
-    name { 'MyString' }
-    self.alias { 'MyString' } # Alias is a reserved word in factory_bot
-    role { 'MyString' }
-    blurb do
-      'ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla '\
-      'pellentesque dignissim enim sit amet venenatis urna cursus eget nunce'
-    end
-    image_link { 'MyString' }
+    name { 'Name' }
+    self.alias { 'Alias' } # Alias is a reserved word in factory_bot
+    role { 'Role' }
+    blurb { Faker::Lorem.paragraph_by_chars(140, false) }
+    image_link { 'Image Link' }
   end
 end
