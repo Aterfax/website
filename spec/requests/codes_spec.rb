@@ -10,7 +10,7 @@ RSpec.describe 'Codes', type: :request do
     end
 
     it 'does not redirect if logged in' do
-      skip 'test not fully implemented'
+      skip 'TODO: Test cannot detect element'
       get codes_path
       expect(response).to have_http_status(200)
     end

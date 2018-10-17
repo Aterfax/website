@@ -8,7 +8,7 @@ RSpec.describe 'rules/index', type: :view do
   end
 
   it 'renders a list of rules' do
-    skip 'Cannot yet target rule elements'
+    skip 'TODO: Test cannot detect element'
     render
     # assert_select 'tr>td', text: nil.to_s, count: 2
     # assert_select 'tr>td', text: 'Summary'.to_s, count: 2

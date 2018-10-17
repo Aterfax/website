@@ -10,7 +10,7 @@ RSpec.describe 'GameEventRelations', type: :request do
     end
 
     it 'does not redirect if logged in' do
-      skip 'test not fully implemented'
+      skip 'TODO: Log in via Devise'
       get game_event_relations_path
       expect(response).to have_http_status(200)
     end
