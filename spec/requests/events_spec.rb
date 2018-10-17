@@ -10,7 +10,8 @@ RSpec.describe 'Events', type: :request do
     end
 
     it 'does not redirect if logged in' do
-      skip 'TODO: Test cannot detect element'
+      user = FactoryBot.create(:user)
+      sign_in user
       get events_path
       expect(response).to have_http_status(200)
     end

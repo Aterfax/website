@@ -10,7 +10,8 @@ RSpec.describe 'Servers', type: :request do
     end
 
     it 'does not redirect if logged in' do
-      skip 'TODO: Log in via Devise'
+      user = FactoryBot.create(:user)
+      sign_in user
       get servers_path
       expect(response).to have_http_status(200)
     end
