@@ -24,9 +24,9 @@ RSpec.describe HomeController, type: :controller do
     end
   end
 
-  describe 'GET #socials' do
+  describe 'GET #upcoming_events' do
     it 'returns http success' do
-      get :socials
+      get :upcoming_events
       expect(response).to have_http_status(:success)
     end
   end
