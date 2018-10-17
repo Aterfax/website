@@ -12,7 +12,7 @@ RSpec.describe 'game_event_relations/index', type: :view do
 
   it 'renders a list of game_event_relations' do
     render
-    assert_select 'tr>td', text: nil.to_s, count: 2
-    assert_select 'tr>td', text: nil.to_s, count: 2
+    assert_select 'tr>td', text: 'Name'.to_s, count: 2
+    assert_select 'tr>td', text: 'Name'.to_s, count: 2
   end
 end
