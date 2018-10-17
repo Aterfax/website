@@ -43,6 +43,9 @@ RSpec.describe PlatformAccountsController, type: :controller do
   let(:valid_session) { {} }
 
   describe 'GET #index' do
+    
+    login_user
+
     it 'returns a success response' do
       PlatformAccount.create! valid_attributes
       get :index, params: {}, session: valid_session
@@ -51,6 +54,9 @@ RSpec.describe PlatformAccountsController, type: :controller do
   end
 
   describe 'GET #show' do
+    
+    login_user
+
     it 'returns a success response' do
       platform_account = PlatformAccount.create! valid_attributes
       get :show, params: { id: platform_account.to_param },
@@ -60,6 +66,9 @@ RSpec.describe PlatformAccountsController, type: :controller do
   end
 
   describe 'GET #new' do
+    
+    login_user
+
     it 'returns a success response' do
       get :new, params: {}, session: valid_session
       expect(response).to be_successful
@@ -67,6 +76,9 @@ RSpec.describe PlatformAccountsController, type: :controller do
   end
 
   describe 'GET #edit' do
+    
+    login_user
+
     it 'returns a success response' do
       platform_account = PlatformAccount.create! valid_attributes
       get :edit, params: { id: platform_account.to_param },
@@ -76,6 +88,9 @@ RSpec.describe PlatformAccountsController, type: :controller do
   end
 
   describe 'POST #create' do
+    
+    login_user
+
     context 'with valid params' do
       it 'creates a new PlatformAccount' do
         expect do
@@ -101,6 +116,9 @@ RSpec.describe PlatformAccountsController, type: :controller do
   end
 
   describe 'PUT #update' do
+    
+    login_user
+
     context 'with valid params' do
       let(:new_attributes) do
         skip('Add a hash of attributes valid for your model')
@@ -136,6 +154,9 @@ RSpec.describe PlatformAccountsController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
+    
+    login_user
+
     it 'destroys the requested platform_account' do
       platform_account = PlatformAccount.create! valid_attributes
       expect do

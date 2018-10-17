@@ -30,11 +30,11 @@ RSpec.describe CodesController, type: :controller do
   # Code. As you add validations to Code, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
+    { name: 'Name'}
   end
 
   let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+    { invalid_attribute: 'some value'}
   end
 
   # This should return the minimal set of values that should be in the session
@@ -43,6 +43,9 @@ RSpec.describe CodesController, type: :controller do
   let(:valid_session) { {} }
 
   describe 'GET #index' do
+
+    login_user
+
     it 'returns a success response' do
       Code.create! valid_attributes
       get :index, params: {}, session: valid_session
@@ -51,6 +54,9 @@ RSpec.describe CodesController, type: :controller do
   end
 
   describe 'GET #show' do
+
+    login_user
+
     it 'returns a success response' do
       code = Code.create! valid_attributes
       get :show, params: { id: code.to_param }, session: valid_session
@@ -59,6 +65,9 @@ RSpec.describe CodesController, type: :controller do
   end
 
   describe 'GET #new' do
+
+    login_user
+
     it 'returns a success response' do
       get :new, params: {}, session: valid_session
       expect(response).to be_successful
@@ -66,6 +75,9 @@ RSpec.describe CodesController, type: :controller do
   end
 
   describe 'GET #edit' do
+
+    login_user
+
     it 'returns a success response' do
       code = Code.create! valid_attributes
       get :edit, params: { id: code.to_param }, session: valid_session
@@ -74,6 +86,9 @@ RSpec.describe CodesController, type: :controller do
   end
 
   describe 'POST #create' do
+
+    login_user
+
     context 'with valid params' do
       it 'creates a new Code' do
         expect do
@@ -99,6 +114,9 @@ RSpec.describe CodesController, type: :controller do
   end
 
   describe 'PUT #update' do
+
+    login_user
+
     context 'with valid params' do
       let(:new_attributes) do
         skip('Add a hash of attributes valid for your model')
@@ -131,6 +149,9 @@ RSpec.describe CodesController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
+
+    login_user
+
     it 'destroys the requested code' do
       code = Code.create! valid_attributes
       expect do

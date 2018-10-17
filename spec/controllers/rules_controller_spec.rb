@@ -43,6 +43,9 @@ RSpec.describe RulesController, type: :controller do
   let(:valid_session) { {} }
 
   describe 'GET #index' do
+    
+    login_user
+
     it 'returns a success response' do
       Rule.create! valid_attributes
       get :index, params: {}, session: valid_session
@@ -51,6 +54,9 @@ RSpec.describe RulesController, type: :controller do
   end
 
   describe 'GET #show' do
+    
+    login_user
+
     it 'returns a success response' do
       rule = Rule.create! valid_attributes
       get :show, params: { id: rule.to_param }, session: valid_session
@@ -59,6 +65,9 @@ RSpec.describe RulesController, type: :controller do
   end
 
   describe 'GET #new' do
+    
+    login_user
+
     it 'returns a success response' do
       get :new, params: {}, session: valid_session
       expect(response).to be_successful
@@ -66,6 +75,9 @@ RSpec.describe RulesController, type: :controller do
   end
 
   describe 'GET #edit' do
+    
+    login_user
+
     it 'returns a success response' do
       rule = Rule.create! valid_attributes
       get :edit, params: { id: rule.to_param }, session: valid_session
@@ -74,6 +86,9 @@ RSpec.describe RulesController, type: :controller do
   end
 
   describe 'POST #create' do
+    
+    login_user
+
     context 'with valid params' do
       it 'creates a new Rule' do
         expect do
@@ -98,6 +113,9 @@ RSpec.describe RulesController, type: :controller do
   end
 
   describe 'PUT #update' do
+    
+    login_user
+
     context 'with valid params' do
       let(:new_attributes) do
         skip('Add a hash of attributes valid for your model')
@@ -130,6 +148,9 @@ RSpec.describe RulesController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
+    
+    login_user
+
     it 'destroys the requested rule' do
       rule = Rule.create! valid_attributes
       expect do
