@@ -5,6 +5,7 @@ require 'rails_helper'
 RSpec.describe 'events/show', type: :view do
   before(:each) do
     @event = assign(:event, FactoryBot.create(:event))
+    allow(view).to receive(:user_signed_in?) { true }
   end
 
   it 'renders attributes in <p>' do
