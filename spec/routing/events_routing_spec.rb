@@ -24,10 +24,6 @@ RSpec.describe EventsController, type: :routing do
       expect(post: '/admin/events').to route_to('events#create')
     end
 
-    it 'routes to #update via PUT' do
-      expect(put: '/admin/events/1').to route_to('events#update', id: '1')
-    end
-
     it 'routes to #update via PATCH' do
       expect(patch: '/events/1').to route_to('events#update', id: '1')
     end
