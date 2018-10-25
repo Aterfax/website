@@ -39,7 +39,8 @@ RSpec.describe GamesController, type: :controller do
   let(:invalid_attributes) do
     # skip('Add a hash of attributes invalid for your model')
     {
-      invalid_attribute: 'Some value'
+      name: nil,
+      link: nil
     }
   end
 
