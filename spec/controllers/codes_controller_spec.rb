@@ -30,11 +30,11 @@ RSpec.describe CodesController, type: :controller do
   # Code. As you add validations to Code, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    { name: 'Name'}
+    { name: 'Name' }
   end
 
   let(:invalid_attributes) do
-    { invalid_attribute: 'some value'}
+    { name: nil }
   end
 
   # This should return the minimal set of values that should be in the session
