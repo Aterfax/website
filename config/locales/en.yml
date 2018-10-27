@@ -41,6 +41,7 @@ en:
   facebook_group_name: 'slugsoc'
   twitter_username: 'SLUGSoc'
   society_join_link: 'https://su.sheffield.ac.uk/groups/computer-gaming-society/join'
+  lan_login_link: 'https://heimdall.slugsoc.co.uk:8003/index.php?zone=slugsoc_lan'
   email_address: 'slugs@sheffield.ac.uk'
   home:
     events:

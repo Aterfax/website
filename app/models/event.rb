@@ -19,6 +19,15 @@ class Event < ApplicationRecord
     all.select { |event| event.datetime.future? }
   end
 
+  def self.all_current
+    all.select { |event| event.datetime.past? }
+       .select { |event| event.end_datetime.future? }
+  end
+
+  def self.lan_is_in_progress?
+    all_current.find { |event| event.name =~ /LAN \d{2,3}/ }
+  end
+
   def facebook_event_link
     "https://facebook.com/events/#{facebook_event_id}"
   end

@@ -8,6 +8,9 @@ class HomeController < ApplicationController
     sponsors
     upcoming_events
     servers
+    if Event.lan_is_in_progress?
+      flash[:notice] = "<i class=\"fas fa-info-circle\"></i> At the LAN? <b><a class=\"text-body\" href=\"#{I18n.t :lan_login_link}\">Log into the network here!</a></b>".html_safe
+    end
   end
 
   def committee; end
