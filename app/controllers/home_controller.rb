@@ -42,6 +42,6 @@ class HomeController < ApplicationController
   end
 
   def servers
-    @servers ||= Server.all
+    @servers ||= SocietyServer.all
   end
 end

@@ -16,7 +16,7 @@
           <td><%= server.game %></td>
           <td><%= server.port %></td>
           <td><%= link_to 'Show', server %></td>
-          <td><%= link_to 'Edit', edit_server_path(server) %></td>
+          <td><%= link_to 'Edit', edit_society_server_path(server) %></td>
           <td><%= link_to 'Destroy', server, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
@@ -25,5 +25,6 @@
 
   <br>
 
-  <%= link_to 'New Server', new_server_path %>
+  <%= link_to 'New Server', new_society_server_path %>
+  <%= render @servers %>
 </div>

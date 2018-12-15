@@ -2,14 +2,14 @@
 
 # Allows an admin user to record, edit and delete references to the game
 # servers we run
-class ServersController < ApplicationController
+class SocietyServersController < ApplicationController
   before_action :set_server, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
   # GET /servers
   # GET /servers.json
   def index
-    @servers = Server.all
+    @servers = SocietyServer.all
   end
 
   # GET /servers/1
@@ -18,7 +18,7 @@ class ServersController < ApplicationController
 
   # GET /servers/new
   def new
-    @server = Server.new
+    @server = SocietyServer.new
   end
 
   # GET /servers/1/edit
@@ -30,7 +30,7 @@ class ServersController < ApplicationController
   # length shouldn't be a concern as long as it doesn't grow much.
   # rubocop:disable Metrics/MethodLength
   def create
-    @server = Server.new(server_params)
+    @server = SocietyServer.new(server_params)
 
     respond_to do |format|
       if @server.save
@@ -75,7 +75,7 @@ class ServersController < ApplicationController
     @server.destroy
     respond_to do |format|
       format.html do
-        redirect_to servers_url,
+        redirect_to society_servers_url,
                     notice: 'Server was successfully destroyed.'
       end
       format.json { head :no_content }
@@ -87,12 +87,12 @@ class ServersController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_server
-    @server = Server.find(params[:id])
+    @server = SocietyServer.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the whitelist
   # through.
   def server_params
-    params.require(:server).permit(:game_id, :port)
+    params.require(:society_server).permit(:game_id, :port)
   end
 end

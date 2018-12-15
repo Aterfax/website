@@ -2,14 +2,14 @@
 
 require 'rails_helper'
 
-RSpec.describe 'servers/index', type: :view do
+RSpec.describe 'society_servers/index', type: :view do
   before(:each) do
     assign(:servers, [
-             Server.create!(
+             SocietyServer.create!(
                game: nil,
                port: 2
              ),
-             Server.create!(
+             SocietyServer.create!(
                game: nil,
                port: 2
              )

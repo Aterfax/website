@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-body text-dark">
+    <h1>
+      <%= society_server.game.name %>
+      <span class="text-muted">
+        sleipnir.slugsoc.co.uk:<%= society_server.port %>
+      </span>
+    </h1>
+    <h3>
+      <%= icon('fas', 'users')%> <%= 24 %> / 32
+      | 12ms ping
+      | ts_badlands
+      <% if signed_in? %>
+        <%= link_to edit_society_server_path(society_server) do %>
+          <%= icon('fas', 'edit') %>
+        <% end %>
+        <%= link_to society_server, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <%= icon('fas', 'trash') %>
+        <% end %>
+      <% end %>
+    </h3>
+  </div>
+</div>

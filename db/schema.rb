@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_03_193440) do
+ActiveRecord::Schema.define(version: 2018_12_15_134405) do
 
   create_table "codes", force: :cascade do |t|
     t.string "name"
@@ -95,12 +95,12 @@ ActiveRecord::Schema.define(version: 2018_10_03_193440) do
     t.index ["code_id"], name: "index_rules_on_code_id"
   end
 
-  create_table "servers", force: :cascade do |t|
+  create_table "society_servers", force: :cascade do |t|
     t.integer "game_id"
     t.integer "port"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["game_id"], name: "index_servers_on_game_id"
+    t.index ["game_id"], name: "index_society_servers_on_game_id"
   end
 
   create_table "sponsors", force: :cascade do |t|

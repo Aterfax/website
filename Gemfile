@@ -45,6 +45,8 @@ gem 'twitter'
 gem 'koala'
 # Use Devise to manage users
 gem 'devise'
+# Use steam-condenser to contact running Source servers
+gem 'steam-condenser'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

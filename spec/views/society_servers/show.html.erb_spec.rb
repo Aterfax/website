@@ -2,9 +2,9 @@
 
 require 'rails_helper'
 
-RSpec.describe 'servers/show', type: :view do
+RSpec.describe 'society_servers/show', type: :view do
   before(:each) do
-    @server = assign(:server, Server.create!(
+    @server = assign(:server, SocietyServer.create!(
                                 game: nil,
                                 port: 2
                               ))

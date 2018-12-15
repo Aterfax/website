@@ -2,7 +2,7 @@
 
 # Represents one of our game servers. Right now, only those hosted on sleipnir
 # are represented.
-class Server < ApplicationRecord
+class SocietyServer < ApplicationRecord
   belongs_to :game
   validates :game, presence: true
   validates :port, presence: true,

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :platforms
     resources :game_event_relations
     resources :games
-    resources :servers
+    resources :society_servers
     # Some hacky stuff here to allow /admin/events/#{id} while having the rest
     # on #{events}
     resources :events, except: %i[show update destroy],
