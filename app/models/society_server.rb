@@ -16,5 +16,7 @@ class SocietyServer < ApplicationRecord
     SourceServer.new('sleipnir.slugsoc.co.uk', port).server_info
   rescue SteamCondenser::TimeoutError
     nil
+  rescue Errno::ECONNREFUSED
+    nil
   end
 end
