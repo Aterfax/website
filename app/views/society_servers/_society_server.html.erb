@@ -7,9 +7,12 @@
       </span>
     </h1>
     <h3>
-      <%= icon('fas', 'users')%> <%= 24 %> / 32
-      | 12ms ping
-      | ts_badlands
+      <% if society_server.details %>
+        <%= icon('fas', 'users')%> <%= society_server.details[:number_of_players] %> / <%= society_server.details[:max_players] %>
+        | v<%= society_server.details[:game_version] %>
+        | <%= society_server.details[:game_description] %>
+        | <%= society_server.details[:map_name] %>
+      <% end %>
       <% if signed_in? %>
         <%= link_to edit_society_server_path(society_server) do %>
           <%= icon('fas', 'edit') %>
