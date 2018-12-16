@@ -1,7 +1,7 @@
-<div class="card">
+<div class="card mb-3">
   <div class="card-body text-dark">
     <h1>
-      <%= society_server.game.name %>
+      <%= link_to society_server.game.name, society_server.game.link, class: 'text-dark' %>
       <span class="text-muted">
         sleipnir.slugsoc.co.uk:<%= society_server.port %>
       </span>

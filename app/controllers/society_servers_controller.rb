@@ -4,7 +4,7 @@
 # servers we run
 class SocietyServersController < ApplicationController
   before_action :set_server, only: %i[show edit update destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: %i[index show]
 
   # GET /servers
   # GET /servers.json

@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'committee', to: 'home#committee'
   get 'lan', to: 'home#lan'
+  get 'servers', to: 'society_servers#index', as: 'servers'
   get 'events', to: 'home#events', as: 'upcoming_events'
   get 'sign_up', to: 'home#sign_up'
   get 'contact_us', to: 'home#contact_us'
