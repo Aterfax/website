@@ -17,7 +17,7 @@
           <% end %>
         <% end %>
         </p>
-        <p><%= simple_format(@event.description) %></p>
+        <p><%= simple_format(@event.description).gsub(URI.regexp, '<a href="\0">\0</a>').html_safe %></p>
         <div class="btn-group mx-auto">
           <% unless @event.facebook_event_id.blank? %>
             <%= link_to @event.facebook_event_link, class: 'btn btn-facebook' do %>
