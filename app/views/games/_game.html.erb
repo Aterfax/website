@@ -1,4 +1,6 @@
-<a class="badge badge-pill badge-<%= game.platforms&.first&.bootstrap_class || 'primary' %>" href="<%= game.link %>">
-  <%= icon(*game.platforms.first.icon.split) if game.platforms&.first&.icon %>
+<%= link_to game.link, { class: "badge badge-pill badge-#{game.platforms&.first&.bootstrap_class || 'primary' }" } do %>
+  <% game.platforms.map do |platform|  %>
+    <%= icon(*platform.icon.split) if platform.icon %>
+  <% end %>
   <%= game.name %>
-</a>
+<% end %>
